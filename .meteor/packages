@@ -8,9 +8,7 @@ meteor-platform
 autopublish
 insecure
 mizzao:bootstrap-3
-<<<<<<< HEAD
 underscore
 gwendall:underscore-helper
-=======
 iron:router
->>>>>>> 53599c858f7baa03cc6cf9e0ea05399c4d08849d
+
