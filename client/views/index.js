@@ -1,18 +1,21 @@
-
-function updateView() {
-    //diet_period
+/*
+    Update days view, according to user input.
+*/
+function updateView() {    
+    //get diet period
     var period = 'day';
     if (document.getElementById('weekly_diet').checked) {
       period = 'week';
     }
     
-    initDaysCollection(period);
+    var day_count = initDaysCollection(period);
 
-    // save meal count state
+    // save meal count state to session
     daily_limits = document.getElementsByName('meals_limit');
     for (var i = 0; i < daily_limits.length; i++) {
         if (daily_limits[i].checked) {
-            Session.set('meals_limit', parseInt(daily_limits[i].value));
+            Session.set('meals_limit', parseInt(daily_limits[i].value) * day_count);
+            return;
         }
     }
 }
@@ -26,7 +29,7 @@ Template.mealsList.helpers({
 });
 
 Template.index.events({
-  'change .formitem, submit .new-diet': function (event) {
+  'change .formitem, click #create-new-diet': function (event) {
     updateView();
     return false;
   },

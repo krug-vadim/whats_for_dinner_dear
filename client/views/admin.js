@@ -34,6 +34,12 @@ Template.admin.events({
       {
         var obj = {
           name: parts[0],
+          dishes: [
+            {
+              name: 'test', 
+              nutrients: {fat: 4, calories: 666}
+            }
+          ],
           nutrients: {
             protein: parseFloat(parts[1]),
             fat: parseFloat(parts[2]),

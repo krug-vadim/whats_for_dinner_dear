@@ -17,4 +17,6 @@ initDaysCollection = function(key) {
 	for (var i = 0; i < days.length; i++ ) {
   		Days.insert({ title: days[i] });
 	}
+
+	return days.length;
 };
