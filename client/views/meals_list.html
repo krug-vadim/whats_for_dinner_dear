@@ -1,7 +1,12 @@
 <template name="mealsList">
-    <div class="meals">
-        {{#each meals}}
-            {{> meal}}
-        {{/each}}
-    </div>
+	<table class="table table-condensed table-hover">
+		<tbody>
+			{{#each meals}}
+				<tr>
+			      	<td>{{meal}}</td>
+			       	<td>john@example.com</td>
+				</tr>
+	    	{{/each}}
+		</tbody>
+	</table>  			
 </template>

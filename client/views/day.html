@@ -1,5 +1,14 @@
 <template name="day">
     <div class="day">
-        <h2>{{day}}</h2> 
+		<div class="panel panel-default">
+		  <div class="panel-heading">
+		    <h3 class="panel-title">{{title}}</h3>
+		  </div>
+		  <div class="panel-body">
+			{{> mealsList}}
+		  </div>
+		</div>
+
+
     </div>
 </template>
