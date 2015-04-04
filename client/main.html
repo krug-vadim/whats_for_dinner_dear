@@ -21,39 +21,23 @@
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
-            <li class="active"><a href="#">Выбор диеты</a></li>
-            <li><a href="#about"></a></li>
-            <li><a href="#contact">Контакты</a></li>
+            <li class="active"><a href="/">Выбор диеты</a></li>
+            <li><a href="/admin">Админка</a></li>
+            <li><a href="/contacts">Контакты</a></li>
           </ul>
         </div><!--/.nav-collapse -->
       </div>
     </nav>
 
-    <div class="container">
-      <div class="row"><div class="jumbotron">
-          <h2>Составить диету</h2>
-
-    			<form class="new-diet">
-    					<div class="input-group form-group">
-    						<label class="radio-inline"><input type="radio" id="daily_diet" name="diet_period" checked="">
-    				  			На день</label>
-    						<label class="radio-inline"><input type="radio" id="weekly_diet" name="diet_period">
-    							На неделю</label>
-    					</div>
-
-              <div class="input-group form-group">
-                <label class="radio-inline"><input type="radio" value="3" name="meals_limit" checked="">
-                    Трёхразовое питание</label>
-                <label class="radio-inline"><input type="radio" value="5" name="meals_limit">
-                  Пятиразовое питание</label>
-              </div>
-
-    					<input type="submit" class="btn btn-lg btn-primary" value="Начать">
-          </form>
-		  </div></div>
-      
-    	<div class="row">
-      		{{> daysList}}
-      </div>
+    <div class="container">   
+      {{renderRouter}} 
     </div>
+
+    <!-- to-top-link-block -->
+    <span id="top-link-block" class="hidden">
+        <a href="#top" class="well well-sm"  onclick="$('html,body').animate({scrollTop:0},'slow');return false;">
+            <i class="glyphicon glyphicon-chevron-up"></i> Back to Top
+        </a>
+    </span>
+
   </body>

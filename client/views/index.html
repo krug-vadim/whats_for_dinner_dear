@@ -1,5 +1,26 @@
 <template name="index">
+	<div class="row"><div class="jumbotron">
+		<h2>Составить диету</h2>
+
+	    <form class="new-diet">
+			<div class="input-group form-group">
+				<label class="radio-inline"><input type="radio" id="daily_diet" name="diet_period" checked="">
+		  			На день</label>
+				<label class="radio-inline"><input type="radio" id="weekly_diet" name="diet_period">
+					На неделю</label>
+			</div>
+
+			<div class="input-group form-group">
+				<label class="radio-inline"><input type="radio" value="3" name="meals_limit" checked="">Трёхразовое питание</label>
+				<label class="radio-inline"><input type="radio" value="5" name="meals_limit">
+				  Пятиразовое питание</label>
+			</div>
+
+	    	<input type="submit" class="btn btn-lg btn-primary" value="Начать">
+		</form>
+	</div></div>
+
 	<div class="row">
-      		{{> daysList}}
+    	{{> daysList}}
     </div>
 </template>
