@@ -17,8 +17,12 @@ function updateView() {
     }
 }
 
-
 Template.index.onRendered(function () {
+    /*$('div.jumbotron').BootSideMenu({
+        side: 'bottom', // left or right
+        autoClose: true // auto close when page loads
+    });*/
+ 
     updateView();
 });
 
