@@ -2,7 +2,7 @@ Meals = new Mongo.Collection("meals");
 
 if (Meteor.isClient) {
   // This code only runs on the client
-  Template.body.helpers({
+  Template.admin.helpers({
     meals: function () {
       // Show newest tasks first
       return Meals.find({});
@@ -13,7 +13,7 @@ if (Meteor.isClient) {
     }
   });
 
-  Template.body.events({
+  Template.admin.events({
 
     "submit .remove-all": function (event) {
       Meals.find().map( function(i) { Meals.remove(i._id) })
