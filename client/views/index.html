@@ -4,20 +4,23 @@
   		padding: 0; 
 	  }
 
-	  .panel-heading a:after {
+	  .panel-heading a:before {
 	    font-family:'Glyphicons Halflings';
-    	content:"\e114";
-    	float: right;
+    	content:"\2b";    	
     	color: grey;
 	  }
 
-	  .panel-heading a.collapsed:after {
-    	content:"\e080";
+	  .panel-heading a.collapsed:before {
+    	content:"\2212";
+	  }
+
+	  .navbar-default {
+  		background-color: #9ba4d4;
 	  }
 	</style>
 
 	<div class="row"><div class="jumbotron">
-		<h2>Составить диету</h2>
+		<h2>Подобрать диету</h2>
 
 	    <form class="new-diet">
 
@@ -37,25 +40,37 @@
 				  Пятиразовое питание</label>
 			</div>
 
-			<div class="row">
-
-<div class="panel panel-default" id="panel2">
-        <div class="panel-heading">
-             <h4 class="panel-title">
-        <a data-toggle="collapse" data-target="#collapseTwo" 
-           href="#collapseTwo" class="collapsed">
-          Расширенный поиск
-        </a>
-      </h4>
+	<div class="panel panel-default" id="panel2">
+        <div class="panel-heading" data-toggle="collapse" data-target="#collapseTwo">
+        <h4 class="panel-title">
+        	<a></a>
+        	<b>Расширенный поиск</b>
+        </h4>
 
         </div>
         <div id="collapseTwo" class="panel-collapse collapse">
-            <div class="panel-body">Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.</div>
+            <!-- div class="panel-body" -->
+
+            <ul class="panel-body list-group">
+              <li class="list-group-item">
+    			<label for="nutritions-input">Калорийность на 100 гр., не более:</label>    		
+    				<input type="number" class="form-control" id="nutritions-input" value="56">
+    		  </li>
+
+    		  <li class="list-group-item">
+    			<label for="fats-input">Жиры на 100 гр., не более:</label>    		
+    				<input type="number" class="form-control" id="fats-input" value="56">
+    		  </li>
+    		</ul>
+  			
+			
+			
+    		<!-- /div -->
         </div>
     </div>
 
 
-			</div>
+			
 
 		
 			<div class="row">
