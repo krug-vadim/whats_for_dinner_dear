@@ -1,5 +1,5 @@
 <template name="admin">
-
+	<div class="jumbotron">
       <form class="new-meal">
         <textarea name="meals_data" placeholder="чо там" text></textarea>
         <input type="submit" value="Отправить">
@@ -8,6 +8,7 @@
       <form class="remove-all">
         <input type="submit" value="Удалить всё">
       </form>
+    </div>
 
-      {{> mealsList}}
+    {{> mealsList}}
 </template>
