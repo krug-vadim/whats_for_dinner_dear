@@ -9,10 +9,20 @@ Template.admin.helpers({
 
   mealsCount: function () {
     return Meals.find().count();
+  },
+
+  testM: function(food) {
+    var c = Meteor.npmRequire("cassowary");
+    //var solver = new c.SimplexSolver();
+
+    //return food.map(function(x){new c.Variable({ name: food.name });});
+    return [1,2,3];
+  
   }
 });
 
 Template.admin.events({
+
   "submit .remove-all": function (event) {
     Meals.find().map( function(i) { Meals.remove(i._id) })
   },
