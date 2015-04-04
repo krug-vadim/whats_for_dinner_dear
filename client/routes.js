@@ -1,5 +1,5 @@
 Router.configure({
-  autoRender: false
+  layoutTemplate : 'main'
 });
 
 Router.map(function () {
