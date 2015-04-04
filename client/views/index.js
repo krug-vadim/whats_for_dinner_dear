@@ -17,14 +17,26 @@ function updateView() {
     }
 }
 
-
 Template.index.onRendered(function () {
+    /*$('div.jumbotron').BootSideMenu({
+        side: 'bottom', // left or right
+        autoClose: true // auto close when page loads
+    });*/
+ 
     updateView();
+});
+
+Template.mealsList.helpers({
+    meals: function () { return Meals.find({}, {limit: Session.get('meals_limit')}); }
 });
 
 Template.index.events({
   'change .formitem, submit .new-diet': function (event) {
     updateView();
     return false;
+  },
+
+  'click li': function (event) {
+    //event.target.setAttribute('class', 'active');
   }
 });

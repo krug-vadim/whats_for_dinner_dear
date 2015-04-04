@@ -1,9 +1,5 @@
-//Meals = new Mongo.Collection("meals");
-
-// This code only runs on the client
 Template.admin.helpers({
   meals: function () {
-    // Show newest tasks first
     return Meals.find({});
   },
 

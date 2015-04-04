@@ -1,26 +1,77 @@
 <template name="index">
+	<style>
+	  .panel-body {
+  		padding: 0; 
+	  }
+
+	  .panel-heading a:after {
+	    font-family:'Glyphicons Halflings';
+    	content:"\e114";
+    	float: right;
+    	color: grey;
+	  }
+
+	  .panel-heading a.collapsed:after {
+    	content:"\e080";
+	  }
+	</style>
+
 	<div class="row"><div class="jumbotron">
 		<h2>Составить диету</h2>
 
 	    <form class="new-diet">
-			<div class="input-group form-group">
-				<label class="radio-inline"><input type="radio" id="daily_diet" name="diet_period" checked="" class="formitem">
-		  			На день</label>
-				<label class="radio-inline"><input type="radio" id="weekly_diet" name="diet_period" class="formitem">
-					На неделю</label>
+
+			<div class="form-group btn-group btn-group-lg btn-group-justified" data-toggle="buttons">
+				<label class="btn btn-primary active">
+					<input type="radio" id="daily_diet" name="diet_period" checked="" class="formitem">
+		  			На день
+		  		</label>
+				<label class="btn btn-primary"><input type="radio" id="weekly_diet" name="diet_period" class="formitem">
+					На неделю
+				</label>
 			</div>
 
-			<div class="input-group form-group">
-				<label class="radio-inline"><input type="radio" value="3" name="meals_limit" checked="" class="formitem">Трёхразовое питание</label>
-				<label class="radio-inline"><input type="radio" value="5" name="meals_limit" class="formitem">
+			<div class="form-group btn-group btn-group-lg btn-group-justified" data-toggle="buttons">
+				<label class="btn btn-primary active"><input type="radio" value="3" name="meals_limit" checked="" class="formitem">Трёхразовое питание</label>
+				<label class="btn btn-primary"><input type="radio" value="5" name="meals_limit" class="formitem">
 				  Пятиразовое питание</label>
 			</div>
 
-	    	<input type="submit" class="btn btn-lg btn-primary" value="Заново">
+			<div class="row">
+
+<div class="panel panel-default" id="panel2">
+        <div class="panel-heading">
+             <h4 class="panel-title">
+        <a data-toggle="collapse" data-target="#collapseTwo" 
+           href="#collapseTwo" class="collapsed">
+          Расширенный поиск
+        </a>
+      </h4>
+
+        </div>
+        <div id="collapseTwo" class="panel-collapse collapse">
+            <div class="panel-body">Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.</div>
+        </div>
+    </div>
+
+
+			</div>
+
+		
+			<div class="row">
+				<div class="col-md-4"></div>
+
+				<div class="col-md-4">
+	    			<input class="btn btn-lg btn-primary" style="width: 100%;" type="submit" value="Заново">
+	    		</div>
+
+	    		<div class="col-md-4"></div>
+	    	</div>
+	    
 		</form>
 	</div></div>
 
 	<div class="row">
-    	{{> daysList}}
+      {{> daysList}}
     </div>
 </template>

@@ -12,3 +12,5 @@ gwendall:underscore-helper
 iron:router
 
 twbs:bootstrap
+houston:admin
+jquery
