@@ -23,12 +23,7 @@ Template.index.onRendered(function () {
 });
 
 Template.index.events({
-
-  'change .formitem': function(event) {
-    updateView();
-  },
-
-  'submit .new-diet': function (event) {
+  'change .formitem, submit .new-diet': function (event) {
     updateView();
     return false;
   }

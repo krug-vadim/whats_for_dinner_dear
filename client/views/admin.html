@@ -1,14 +1,20 @@
 <template name="admin">
+  <div class="row">
 	<div class="jumbotron">
+	  <h2>Управление диетами</h2>
+
       <form class="new-meal">
         <textarea name="meals_data" placeholder="чо там" text></textarea>
-        <input type="submit" value="Отправить">
+        <input type="submit" class="btn btn-primary" value="Отправить">
       </form>
 
       <form class="remove-all">
-        <input type="submit" value="Удалить всё">
+        <input type="submit" class="btn btn-primary" value="Удалить всё">
       </form>
     </div>
+  </div>
 
+  <div class="row">
     {{> mealsList}}
+  </div>
 </template>
