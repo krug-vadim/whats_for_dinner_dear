@@ -22,9 +22,17 @@ Template.index.onRendered(function () {
     updateView();
 });
 
+Template.mealsList.helpers({
+    meals: function () { return Meals.find({}, {limit: Session.get('meals_limit')}); }
+});
+
 Template.index.events({
   'change .formitem, submit .new-diet': function (event) {
     updateView();
     return false;
+  },
+
+  'click li': function (event) {
+    //event.target.setAttribute('class', 'active');
   }
 });
