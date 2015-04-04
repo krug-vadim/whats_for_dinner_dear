@@ -7,8 +7,8 @@
 meteor-platform
 autopublish
 insecure
-mizzao:bootstrap-3
 underscore
 gwendall:underscore-helper
 iron:router
 
+twbs:bootstrap
