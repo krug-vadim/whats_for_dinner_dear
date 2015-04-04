@@ -1,0 +1,1 @@
+Cassowary = Npm.require('cassowary');

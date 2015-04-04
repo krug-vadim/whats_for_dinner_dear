@@ -8,11 +8,8 @@ Template.admin.helpers({
   },
 
   testM: function(food) {
-    var c = Meteor.npmRequire("cassowary");
-    //var solver = new c.SimplexSolver();
-
     //return food.map(function(x){new c.Variable({ name: food.name });});
-    return [1,2,3];
+    return [1,2,3,Meteor.call('meals')];
   
   }
 });

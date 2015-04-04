@@ -1,0 +1,7 @@
+{
+  "dependencies": {
+    "cassowary": {
+      "version": "0.0.2"
+    }
+  }
+}
