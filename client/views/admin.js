@@ -36,7 +36,7 @@ Template.admin.events({
           name: parts[0],
           dishes: [
             {
-              name: 'test', 
+              name: 'Test', 
               nutrients: {fat: 4, calories: 666}
             }
           ],
