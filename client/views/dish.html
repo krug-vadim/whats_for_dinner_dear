@@ -1,38 +1,24 @@
 <template name="dish">
-	<ul class="list-inline" style="padding-left: 60px;">
-		<li><h4>{{name}}</h4></li>
-		<li><h4>({{value}} грамм)</h4></li>
+		<tr>
+		<td><h4>{{name}}</h4></td>
+		<td><h4>{{value}} грамм</h4></td>
 
-		<li style="float: right;"><h4>
-			<span class="label label-primary">
-  				Калорийность {{nutrients.calories}}
-	  		</span>
-	  	</h4></li>
+		<td><h4>
+			<span class="label label-primary">Калории {{nutrients.calories}}</span>
+		</h4></td>
 
-		{{#if nutrients.carbohydrates}}
-			<li style="float: right;"><h4>
-				<span class="label label-default">
-	  				Углеводы {{nutrients.carbohydrates}}
-				</span>
-			</h4></li>
-		{{/if}}
-
-		{{#if nutrients.fat}}
-			<li style="float: right;"><h4>
-				<span class="label label-default">
-	  				Жиры {{nutrients.fat}}
-				</span>
-			</h4></li>
-		{{/if}}
+<td><h4>
+				<span class="label label-default">Жиры {{nutrients.fat}}</span>
+				</h4></td>
+<td><h4>
+	  			<span class="label label-default">Белки {{nutrients.protein}}</span>
+	  			</h4></td>	
+<td><h4>
+				<span class="label label-default">Углеводы {{nutrients.carbohydrates}}</span></h4></td>
+			
 		
-		{{#if nutrients.protein}}
-			<li style="float: right;"><h4>
-				<span class="label label-default">
-	  				Белки {{nutrients.protein}}
-				</span>
-			</h4></li>
-		{{/if}}
-	</ul>
+		</tr>
+
   
 </template>
 
