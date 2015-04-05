@@ -1,22 +1,31 @@
 function calcPortions(meals, resources) {
-  var i, j;
+  var i, j, k, counter;
 
     var days = Days.find().count();    
     Meteor.call('mealsForDays', resources, 'cost', days, meals, function(err, data) {
         //updateDays(data);        
+        
+        for(var i=0; i < data.length; i++) {
+            counter = 0;
+            // meals
+            for (var j=0; j < data[i]['meals'].length; j++) {
+                // dishes
+                for (var k=0; k < data[i]['meals'][j].length; k++) {
+                    if (data[i]['meals'][j][k]) {
+                        counter += data[i]['meals'][j][k]['nutrients']['calories'];
+                    }
+                }
+            }
+            data[i]['total_calories'] = counter;
+        }
+
         console.log(data);
+
         document.getElementById('create-new-diet').removeAttribute('disabled');
         Session.set('qmeals', data);        
     });
 }
 
-function updateDays(data) {
-    var days = Days.find().fetch();    
-    for(var i=0; i < days.length; i++) {
-
-        //days[i][''].update({$set: {C:false}});
-    }
-}
 /*
     Update days view, according to user input.
 */
@@ -52,7 +61,7 @@ Template.index.onRendered(function () {
 });
 
 Template.mealsList.helpers({
-    qmeals: function () { return Session.get('qmeals'); }
+    qmeals: function () { return Session.get('qmeals'); },
 });
 
 Template.index.events({
