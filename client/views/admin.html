@@ -2,7 +2,7 @@
   <div class="row">
 	<div class="jumbotron">
 	  <h2>Управление диетами</h2>
-		
+
 	      <form class="new-meal">
 	        <textarea name="meals_data" placeholder="чо там" class="form-control"></textarea>
 	        <input type="submit" class="btn btn-primary" value="Отправить">
@@ -13,9 +13,7 @@
 	      </form>
 
 
-      <form class="calc-today">
-        <input type="submit" class="btn btn-primary" value="Посчитать">
-      </form>
+        <input type="submit" class="calc-today btn btn-primary" value="Посчитать">
 
     </div>
   </div>
@@ -29,14 +27,14 @@
 			   {{> meal}}
 	    	{{/each}}
 		</tbody>
-	</table>  
+	</table>
 
-   
+
   </div>
 
   <div>123213</div>
-  {{#each testM}}
-    {{this}}
+  {{#each portion}}
+    - {{this}}
   {{/each}}
 
 

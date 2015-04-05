@@ -1,8 +1,78 @@
+Food = new Mongo.Collection('food');
+
 Meteor.methods({
-  "meals": function() {
+  "meals": function(resources, profitName) {
+
+    var meals = Food.find({}).fetch();
+
+    console.log("Found: " + meals.length);
+
     var c = Cassowary;
     var solver = new c.SimplexSolver();
 
-    return new c.Variable({name:'x'}).toString();
+    // Objective: Profit
+    var profit = new c.ObjectiveVariable({name: 'profit'});
+
+    console.log("Added profit");
+
+    /*for p in _.keys problem.products
+      products[p] = new c.Variable {name: p}
+      solver.addConstraint(new c.Inequality products[p], c.GEQ, 0)*/
+    var dishes = {};
+    meals.forEach(function(meal) {
+        console.log("Working with food: " + meal.name);
+        dishes[meal.name] = new c.Variable({name: meal.name});
+        solver.addConstraint(new c.Inequality(dishes[meal.name], c.GEQ, 0));
+    });
+
+    /*productProfit = _.map _(products).keys(), (p) ->
+            new c.Expression products[p], -1 * problem.products[p].profit */
+    var dishesProfit = meals.map(function(meal) {
+        d = meal.name
+        console.log("Adding food " + dishes[d] + " profit " + meal.nutrients[profitName]);
+        return new c.Expression( dishes[d], -1 * meal.nutrients[profitName] ); // XXX: change to real profit
+    });
+
+    /*# profit = 13 * ale + 23 * beer
+    solver.addConstraint(new c.Equation profit,
+      _.reduce productProfit, ((ex, e) -> ex.plus e), new c.Expression) */
+    console.log("Adding profit function");
+    solver.addConstraint(new c.Equation(profit,
+        dishesProfit.reduce(function(ex,e) { return ex.plus(e) }, new c.Expression())));
+
+    //for resource in _.keys problem.resources
+    //  r = resources[resource] = new c.Variable {name: resource}
+    //  resourceLimits = _.map _(products).keys(), (p) ->
+    //    new c.Expression products[p], problem.products[p][resource]
+    //  solver.addConstraint(new c.Equation r,
+    //    _.reduce resourceLimits, ((ex, e) -> ex.plus e), new c.Expression)
+    //  solver.addConstraint(new c.Inequality r, c.LEQ, problem.resources[resource])
+    //    .addConstraint(new c.Inequality r, c.GEQ, 0)
+    console.log("Adding resources limits");
+    Object.keys(resources).forEach(function(resource) {
+        console.log("Adding resource: " + resource);
+
+        var r = new c.Variable({name:resource});
+
+        var resourceLimits = meals.map(function(meal) {
+            console.log("\t" + dishes[meal.name] + " resource limit: " + meal.nutrients[resource]);
+            return new c.Expression(dishes[meal.name], meal.nutrients[resource]);
+        });
+
+        solver.addConstraint(new c.Equation(r,
+            resourceLimits.reduce(function(ex,e){ return ex.plus(e); }, new c.Expression())));
+
+        console.log("Resource LEQ " + resources[resource]);
+        solver.addConstraint(new c.Inequality(r, c.LEQ, resources[resource]));
+        solver.addConstraint(new c.Inequality(r, c.GEQ, 0));
+    });
+
+    solver.optimize(profit);
+    solver.resolve();
+
+    return Object.keys(dishes).map(function(d) {
+        console.log(d + " == " + dishes[d].value);
+        return {d: dishes[d].value};
+    });
   }
 });
