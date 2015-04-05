@@ -35,11 +35,18 @@
   <table>
   <tbody>
     {{#each portion}}
-        <tr><td colspan=2>День</td></tr>
+        <tr><td colspan=2 align="center">День</td></tr>
         {{#each this}}
-            <tr><td colspan=2>Прием пищи</td></tr>
+            <tr><td colspan=2 align="center">Прием пищи</td></tr>
             {{#each this}}
-                <tr><td>{{this.name}}</td><td>{{this.value}}</td></tr>
+                <tr>
+                    <td width="200px">{{this.name}}</td>
+                    <td width="100px">{{this.value}}</td>
+                    <td width="100px">{{this.nutrients.protein}}</td>
+                    <td width="100px">{{this.nutrients.fat}}</td>
+                    <td width="100px">{{this.nutrients.carbohydrates}}</td>
+                    <td width="100px">{{this.nutrients.calories}}</td>
+                </tr>
             {{/each}}
         {{/each}}
     {{/each}}

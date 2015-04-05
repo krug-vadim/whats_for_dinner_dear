@@ -19,9 +19,11 @@ Meteor.methods({
       products[p] = new c.Variable {name: p}
       solver.addConstraint(new c.Inequality products[p], c.GEQ, 0)*/
     var dishes = {};
+    var dishesIndex = {};
     meals.forEach(function(meal) {
         //console.log("Working with food: " + meal.name);
         dishes[meal.name] = new c.Variable({name: meal.name});
+        dishesIndex[meal.name] = meal;
         solver.addConstraint(new c.Inequality(dishes[meal.name], c.GEQ, 0));
         solver.addConstraint(new c.Inequality(dishes[meal.name], c.LEQ, 5));
     });
@@ -71,11 +73,11 @@ Meteor.methods({
     solver.optimize(profit);
     solver.resolve();
 
-    return Object.keys(dishes).map(function(d) {
+    return Object.keys(dishes).filter(function(d) {
+        return dishes[d].value.toFixed(0) > 0;
+    }).map(function(d) {
         //console.log(d + " == " + dishes[d].value);
-        return {name: d, value: dishes[d].value};
-    }).filter(function(d) {
-        return d.value.toFixed(0) > 0;
+        return {name: d, value: (100.0 * dishes[d].value).toFixed(1), nutrients: dishesIndex[d].nutrients};
     });
   },
 
