@@ -57,11 +57,19 @@
             <!-- div class="panel-body" -->
 
             <ul class="panel-body list-group">
-              <li class="list-group-item">
+              <!--li class="list-group-item">
     			<label for="calories-input">Калорийность (на 100 грамм)</label>    		
     			<div class="input-group">
     				<span class="input-group-addon">Максимум</span>
     				<input type="number" class="form-control" id="calories-input" value="56">
+    			</div>
+    		  </li-->
+
+			  <li class="list-group-item">
+    			<label for="carbohydrates-input">Содержание белков (на 100 грамм)</label>
+    			<div class="input-group">
+    				<span class="input-group-addon">Максимум</span>
+    				<input type="number" class="form-control" id="carbohydrates-input" value="56">
     			</div>
     		  </li>
 
@@ -72,6 +80,15 @@
     				<input type="number" class="form-control" id="fats-input" value="56">
     			</div>
     		  </li>
+
+			  <li class="list-group-item">
+    			<label for="proteins-input">Содержание углеводов (на 100 грамм)</label>    		
+    			<div class="input-group">
+    				<span class="input-group-addon">Максимум</span>
+    				<input type="number" class="form-control" id="proteins-input" value="56">
+    			</div>
+    		  </li>			  
+
     		</ul>  									
         </div>
     </div><!-- end panel -->
@@ -93,6 +110,6 @@
 	</div></div>
 
 	<div class="row">
-      {{> daysList}}
+      {{> mealsList}}
     </div>
 </template>

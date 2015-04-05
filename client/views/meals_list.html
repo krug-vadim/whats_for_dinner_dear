@@ -1,9 +1,25 @@
-<template name="mealsList">
-	<table class="table table-condensed table-hover table-striped">
-		<tbody>
-			{{#each meals}}
-			  {{> meal}}
-	    	{{/each}}
-		</tbody>
-	</table>  			
+<template name="mealsList">	
+		  {{#each qmeals}}
+				<div class="panel panel-default">
+					<div class="panel-heading">
+				    	<h3 class="panel-title"><b>Меню на день</b></h3>
+				  	</div>
+				  
+				  	<div class="panel-body"></div>		 
+
+					<table class="table table-condensed table-striped">
+					<tbody>				
+						{{#each this}}		            		
+						     <tr><td>
+						     	<ul>
+		            				{{#each this}}		            				
+		                				<li>{{> dish}}</li>
+		            				{{/each}}		            		
+		            			</ul>
+		            		</td></tr>
+		        		{{/each}}  	
+					</tbody>
+					</table>  			
+				</div>
+		  {{/each}}
 </template>
