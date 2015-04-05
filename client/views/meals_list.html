@@ -9,15 +9,17 @@
 
 					<table class="table table-condensed table-striped">
 					<tbody>				
-						{{#each this}}		            		
-						     <tr><td>
-						     	<ul>
-		            				{{#each this}}		            				
-		                				<li>{{> dish}}</li>
-		            				{{/each}}		            		
-		            			</ul>
-		            		</td></tr>
-		        		{{/each}}  	
+						{{#each this}}
+							{{#if this}}		            		
+							     <tr><td>
+							     	<ul>
+			            				{{#each this}}		            				
+			                				<li>{{> dish}}</li>
+			            				{{/each}}		            		
+			            			</ul>
+			            		</td></tr>		            	
+			            	{{/if}}
+		        		{{/each}}
 					</tbody>
 					</table>  			
 				</div>
