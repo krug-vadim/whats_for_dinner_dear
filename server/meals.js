@@ -76,5 +76,21 @@ Meteor.methods({
     }).filter(function(d) {
         return d.value.toFixed(0) > 0;
     });
+  },
+
+  "mealsForDays": function(resources, profitName, days, meals) {
+     var output = [];
+
+     for (var i = 0; i < days; i++)
+     {
+          output[i] = [];
+         for (var j = 0; j < meals; j++)
+         {
+            output[i][j] = Meteor.call('meals', resources, profitName);
+            console.log(output[i][j]);
+         }
+     }
+
+     return output;
   }
 });

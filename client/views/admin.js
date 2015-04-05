@@ -23,7 +23,7 @@ Template.admin.events({
       calories: 2000,
       protein: 100};
 
-    Meteor.call('meals', resources, 'cost', function(err, data) {
+    Meteor.call('mealsForDays', resources, 'cost', 5, 3, function(err, data) {
 
       Session.set('q', data);
     });
