@@ -20,6 +20,8 @@ function updateDays(data) {
     Update days view, according to user input.
 */
 function updateView() {    
+    Session.set('qmeals', []);
+
     //get diet period
     var period = 'day';
     if (document.getElementById('weekly_diet').checked) {
