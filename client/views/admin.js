@@ -24,7 +24,8 @@ Template.admin.events({
   "click .calc-today": function (event) {
     var resources = {
       calories: 2000,
-      protein: 100};
+      protein: 100,
+      fats: 200};
 
       Session.set('mealsLoaded', false);
 

@@ -90,10 +90,15 @@ Meteor.methods({
 
   "mealsForDays": function(resources, profitName, days, meals) {
      var output = [];
+     var dayNames = ['Понедельник','Вторник','Среда','Четверг','Пятница','Суббота','Воскресение'];
 
      for (var i = 0; i < days; i++)
      {
           output[i] = {meals: []};
+          if ( days == 1)
+            output[i]['day'] = 'Сегодня';
+          else
+            output[i]['day'] = dayNames[i%7];
          for (var j = 0; j < meals; j++)
          {
             output[i]['meals'][j] = Meteor.call('meals', resources, profitName);

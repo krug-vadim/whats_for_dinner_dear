@@ -2,22 +2,22 @@
 		  {{#each qmeals}}
 				<div class="panel panel-default">
 					<div class="panel-heading">
-				    	<h3 class="panel-title"><b>Меню на день ({{this.total_calories}} кал.)</b></h3>
+				    	<h3 class="panel-title"> <b>{{this.day}} ({{this.total_calories}} кал.)</b></h3>
 				  	</div>
 
 				  	<div class="panel-body"></div>
 
 					<table class="table table-condensed table-striped">
-					<tbody>				
+					<tbody>
 						{{#each this.meals}}
-							{{#if this}}		            		
+							{{#if this}}
 							     <tr><td>
 							     	<ul>
-			            				{{#each this}}		            				
+			            				{{#each this}}
 			                				<li>{{> dish}}</li>
-			            				{{/each}}		            		
+			            				{{/each}}
 			            			</ul>
-			            		</td></tr>		            	
+			            		</td></tr>
 			            	{{/if}}
 		        		{{/each}}
 					</tbody>
