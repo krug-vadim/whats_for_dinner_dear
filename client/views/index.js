@@ -1,5 +1,5 @@
 function calcPortions(meals, resources) {
-  var i, j, k, counter;
+  var i, j, k, counter, tmp;
 
     var days = Days.find().count();
     Meteor.call('mealsForDays', resources, 'cost', days, meals, function(err, data) {
@@ -11,12 +11,13 @@ function calcPortions(meals, resources) {
             for (var j=0; j < data[i]['meals'].length; j++) {
                 // dishes
                 for (var k=0; k < data[i]['meals'][j].length; k++) {
-                    if (data[i]['meals'][j][k]) {
-                        counter += data[i]['meals'][j][k]['nutrients']['calories'];
+                    tmp = data[i]['meals'][j][k];
+                    if (tmp) {
+                        counter += tmp['nutrients']['calories'] * tmp['value'] / 100.0;
                     }
                 }
             }
-            data[i]['total_calories'] = counter;
+            data[i]['total_calories'] = counter.toFixed(1);
         }
 
         console.log(data);
@@ -43,7 +44,7 @@ function updateView() {
       protein:       parseInt(document.getElementById('proteins-input').value),
       fat:           parseInt(document.getElementById('fats-input').value),
       carbohydrates: parseInt(document.getElementById('carbohydrates-input').value),
-      calories: 1000
+      calories:      parseInt(document.getElementById('calories-input').value)
     };
     var day_count = initDaysCollection(period);
 
