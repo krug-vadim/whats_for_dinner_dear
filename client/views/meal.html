@@ -1,9 +1,9 @@
 <template name="meal">
     <tr class="meal">
-        <td>{{name}}</td> 
-        <td>{{nutrients.protein}}</td>
-        <td>{{nutrients.fat}}</td>
-        <td>{{nutrients.carbohydrates}}</td>
-        <td>{{nutrients.calories}}</td>
+    	<td>
+		  {{#each dishes}}
+		    {{> dish}}
+	      {{/each}}
+	    </td>        
     </tr>
 </template>
