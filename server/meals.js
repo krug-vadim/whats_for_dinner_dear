@@ -23,6 +23,7 @@ Meteor.methods({
         //console.log("Working with food: " + meal.name);
         dishes[meal.name] = new c.Variable({name: meal.name});
         solver.addConstraint(new c.Inequality(dishes[meal.name], c.GEQ, 0));
+        solver.addConstraint(new c.Inequality(dishes[meal.name], c.LEQ, 5));
     });
 
     /*productProfit = _.map _(products).keys(), (p) ->

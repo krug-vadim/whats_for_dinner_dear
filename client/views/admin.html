@@ -32,9 +32,18 @@
   </div>
 
   <div>123213</div>
-  {{#each portion}}
-    - {{this.name}} / {{this.value}}
-  {{/each}}
-
+  <table>
+  <tbody>
+    {{#each portion}}
+        <tr><td colspan=2>День</td></tr>
+        {{#each this}}
+            <tr><td colspan=2>Прием пищи</td></tr>
+            {{#each this}}
+                <tr><td>{{this.name}}</td><td>{{this.value}}</td></tr>
+            {{/each}}
+        {{/each}}
+    {{/each}}
+  </tbody>
+  </table>
 
 </template>
