@@ -89,7 +89,7 @@ Meteor.methods({
           output[i] = [];
          for (var j = 0; j < meals; j++)
          {
-            output[i][j] = Meteor.call('meals', resources, profitName);
+            output[i][j] = Meteor.call('meals', resources, profitName);            
             console.log(output[i][j]);
          }
      }
