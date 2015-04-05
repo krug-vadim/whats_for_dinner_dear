@@ -1,24 +1,24 @@
 <template name="dish">
-		<tr>
-		<td><h4>{{name}}</h4></td>
-		<td><h4>{{value}} грамм</h4></td>
+		<tr >
+		<td ><h4>{{name}}</h4></td>
+		<td align="center"><h4>{{value}} грамм</h4></td>
 
-		<td><h4>
-			<span class="label label-primary">Калории {{nutrients.calories}}</span>
+		<td align="right"  width="100px"><h4>
+			<div class="label label-primary" style="font-size:18px; display: block;">Калории {{nutrients.calories}}</div>
 		</h4></td>
 
-<td><h4>
-				<span class="label label-default">Жиры {{nutrients.fat}}</span>
+<td align="right" width="100px"><h4>
+				<div class="label label-default" style="font-size:18px; display: block;">Жиры {{nutrients.fat}}</div>
 				</h4></td>
-<td><h4>
-	  			<span class="label label-default">Белки {{nutrients.protein}}</span>
-	  			</h4></td>	
-<td><h4>
-				<span class="label label-default">Углеводы {{nutrients.carbohydrates}}</span></h4></td>
-			
-		
+<td align="right" width="100px"><h4>
+	  			<div  class="label label-default" style="font-size:18px; display: block;">Белки {{nutrients.protein}}</div>
+	  			</h4></td>
+<td align="right" width="100px"><h4>
+				<div class="label label-default" style="font-size:18px; display: block;">Углеводы {{nutrients.carbohydrates}}</div></h4></td>
+
+
 		</tr>
 
-  
+
 </template>
 
