@@ -9,10 +9,13 @@ Template.admin.helpers({
 
   portion: function() {
     return Session.get('q');
+  },
+
+  mealsLoaded: function () {
+    return Session.get('mealsLoaded');
   }
 
 });
-
 
 Food = new Mongo.Collection('food');
 
@@ -23,9 +26,12 @@ Template.admin.events({
       calories: 2000,
       protein: 100};
 
-    Meteor.call('mealsForDays', resources, 'cost', 5, 3, function(err, data) {
+      Session.set('mealsLoaded', false);
 
-      Session.set('q', data);
+      Meteor.call('mealsForDays', resources, 'cost', 5, 3, function(err, data) {
+
+        Session.set('q', data);
+        Session.set('mealsLoaded', true);
     });
   },
 
