@@ -1,18 +1,36 @@
-<template name="dish">    
+<template name="dish">
 	<ul class="list-inline" style="padding-left: 60px;">
 		<li><h4><b>{{name}}</b></h4></li>
 
 		<li style="float: right;"><h4>
-			<span class="label label-default">
+			<span class="label label-primary">
   				Калорийность {{nutrients.calories}}
 	  		</span>
 	  	</h4></li>
 
-		<li style="float: right;"><h4>
-			<span class="label label-default">
-  				Жиры {{nutrients.fat}}
-			</span>
-		</h4></li>
+		{{#if nutrients.carbohydrates}}
+			<li style="float: right;"><h4>
+				<span class="label label-default">
+	  				Углеводы {{nutrients.carbohydrates}}
+				</span>
+			</h4></li>
+		{{/if}}
+
+		{{#if nutrients.fat}}
+			<li style="float: right;"><h4>
+				<span class="label label-default">
+	  				Жиры {{nutrients.fat}}
+				</span>
+			</h4></li>
+		{{/if}}
+		
+		{{#if nutrients.protein}}
+			<li style="float: right;"><h4>
+				<span class="label label-default">
+	  				Белки {{nutrients.protein}}
+				</span>
+			</h4></li>
+		{{/if}}
 	</ul>
   
 </template>
