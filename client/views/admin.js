@@ -20,11 +20,10 @@ Template.admin.events({
 
   "click .calc-today": function (event) {
     var resources = {
-      protein: 100,
-      fat: 100,
-      carbohydrates: 200};
+      calories: 2000,
+      protein: 100};
 
-    Meteor.call('meals', resources, 'calories', function(err, data) {
+    Meteor.call('meals', resources, 'cost', function(err, data) {
 
       Session.set('q', data);
     });
@@ -50,7 +49,7 @@ Template.admin.events({
           name: parts[0],
           dishes: [
             {
-              name: 'Test', 
+              name: 'Test',
               nutrients: {fat: 4, calories: 666}
             }
           ],
