@@ -31,7 +31,7 @@
 
   </div>
 
-  <div>123213</div>
+  {{#if mealsLoaded}}
   <table>
   <tbody>
     {{#each portion}}
@@ -52,5 +52,8 @@
     {{/each}}
   </tbody>
   </table>
+  {{else}}
+    <img src="http://viewvc.svn.mozilla.org/vc/addons/trunk/bandwagon/skin/images/spinner.gif?revision=18591&view=co&pathrev=18591">
+  {{/if}}
 
 </template>
