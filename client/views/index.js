@@ -5,7 +5,8 @@ function calcPortions(meals, resources) {
     Meteor.call('mealsForDays', resources, 'cost', days, meals, function(err, data) {
         //updateDays(data);        
         console.log(data);
-        Session.set('qmeals', data);
+        document.getElementById('create-new-diet').removeAttribute('disabled');
+        Session.set('qmeals', data);        
     });
 }
 
@@ -20,7 +21,8 @@ function updateDays(data) {
     Update days view, according to user input.
 */
 function updateView() {    
-    Session.set('qmeals', []);
+    Session.set('qmeals', []);    
+    document.getElementById('create-new-diet').setAttribute('disabled', 'disabled');
 
     //get diet period
     var period = 'day';
@@ -56,7 +58,7 @@ Template.mealsList.helpers({
 Template.index.events({
   'change .formitem, click #create-new-diet, input.form-control': function (event) {
     updateView();
-    return false;
+    return false;    
   },
 
   'click li': function (event) {
