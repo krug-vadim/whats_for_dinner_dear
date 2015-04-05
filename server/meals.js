@@ -28,6 +28,13 @@ Meteor.methods({
         solver.addConstraint(new c.Inequality(dishes[meal.name], c.LEQ, 5));
     });
 
+    var z = meals.map(function(m){
+        return new c.Expression(dishes[m.name], 1);
+    });
+
+    solver.addConstraint(new c.Inequality(
+        z.reduce(function(ex,e) { return ex.plus(e) }, new c.Expression()), c.LEQ, 5));
+
     /*productProfit = _.map _(products).keys(), (p) ->
             new c.Expression products[p], -1 * problem.products[p].profit */
     var dishesProfit = meals.map(function(meal) {
@@ -89,7 +96,7 @@ Meteor.methods({
           output[i] = [];
          for (var j = 0; j < meals; j++)
          {
-            output[i][j] = Meteor.call('meals', resources, profitName);            
+            output[i][j] = Meteor.call('meals', resources, profitName);
             console.log(output[i][j]);
          }
      }
