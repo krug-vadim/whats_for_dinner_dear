@@ -72,7 +72,9 @@ Meteor.methods({
 
     return Object.keys(dishes).map(function(d) {
         console.log(d + " == " + dishes[d].value);
-        return {d: dishes[d].value};
+        return {name: d, value: dishes[d].value};
+    }).filter(function(d) {
+        return d.value.toFixed(0) > 0;
     });
   }
 });
